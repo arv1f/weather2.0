@@ -1,0 +1,115 @@
+.root-cont{
+    position: absolute;
+    display: flex;
+    inset: 0;
+    background-color: var(--bg_main);
+    color: var(--fg_main);
+}
+.left-panel{
+    background-color: var(--bg_contact);
+    color: var(--fg_main);
+    height: calc(100svh - 0.5rem);
+    width: calc(20% - 0.5rem);
+    z-index: 10;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 0.1rem 0.5rem hsl(0, 0%, 0%, 0.3);
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+}
+.theme_container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin-top: -1rem;
+    margin-left: 0.5rem;
+}
+.search_city{
+    background-color: var(--bg_interaction);
+    color: var(--fg_main);
+    border: double 3.5px transparent;
+    width: 80%;
+    height: 1.3rem;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
+    margin: 0 5% 0 5%;
+}
+.search_city:focus{
+    border-color: var(--bg_contact);
+}
+.sity_list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+.sity_link{
+    color: var(--fg_main);
+}
+
+
+
+
+
+
+
+
+/* @media (max-width: 768px) {
+
+} */
+.switch{
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 30px;
+    margin-left: 0.5rem;
+}
+.switch__input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+.switch__slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 30px;
+    /* background-color: #ccc; */
+    background-color: hsl(197, 97%, 46%);
+    transition: 0.4s;
+}
+.switch__slider::before{
+    position: absolute;
+    content: "";
+    cursor: pointer;
+    left: 5px;
+    bottom: 5px;
+    height: 20px;
+    width: 20px;
+    background-color:  yellow;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+.switch__input:focus + .switch__slider{
+    box-shadow: 0 0 1px rgb(7, 7, 130);
+}
+.switch__input:checked + .switch__slider{
+    /* background-color: hsl(0, 0%, 80%); */
+    background-color: 	hsl(230, 19%, 26%);
+}
+.switch__input:checked + .switch__slider::before{
+    -ms-transform: translateX(20px);
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+    background-color: hsl(220, 83%, 75%);
+}
