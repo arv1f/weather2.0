@@ -1,28 +1,46 @@
-import { useGeoApi } from "../../contacts/geoApi";
-import { useWeatherApi } from "../../contacts/weatherApi";
+import { useFullApi } from "../../contacts/fullApi";
 import "./style.css";
 import { useParams } from "react-router-dom";
 
-// const useGeoApiF = (city: string) => {
-//   return useGeoApi(city);
-// };
-
 export const WeatherPage = () => {
   const { city } = useParams<{ city: string }>();
-  const geoData = useGeoApi(city!);
-  if (geoData === undefined) return null;
-  // const { latitude, longitude } = geoData.data.results[0];
-  // const { data, isLoading } = useWeatherApi(latitude, longitude);
-  // console.log(data);
-  // console.log(geoData.data);
-  // const latitude = geoData.data.results[0].latitude;
-  // const longitude = geoData.data.results[0].longitude;
-
-  // // const { data, isLoading } = useWeatherApi(latitude, longitude);
-  // if (!data) return null;
-  // console.log(data);
-
-  return <div></div>;
+  //if (!useFullApi(city!)) {return null}
+  const { data, isLoading } = useFullApi(city!);
+  // if (data !== null && data !== undefined) {
+  //   console.log(data.current, data.current_units);
+  // }
+  return (
+    <div className="weather_page">
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        data && (
+          <div>
+            <h2>{city}:</h2>
+            <div>
+              Temperature: {data.current.temperature_2m}{" "}
+              {data.current_units.temperature_2m}
+              <br />
+              It feels like: {data.current.apparent_temperature}{" "}
+              {data.current_units.apparent_temperature}
+              <br />
+              Cloud density: {data.current.cloud_cover}%
+              <br />
+              Wind speed: {data.current.wind_speed_10m}
+              {data.current_units.wind_speed_10m}
+              <br />
+              Wind direction: {data.current.wind_direction_10m}
+              {data.current_units.wind_direction_10m}
+              <br />
+              Relative humidity: {data.current.relative_humidity_2m}
+              {data.current_units.relative_humidity_2m}
+              <br />
+              Pressure: {data.current.surface_pressure}
+              {data.current_units.surface_pressure}
+            </div>
+          </div>
+        )
+      )}
+    </div>
+  );
 };
-//48.85341
-//2.3488
