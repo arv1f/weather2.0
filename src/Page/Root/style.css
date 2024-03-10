@@ -9,7 +9,7 @@
     background-color: var(--bg_contact);
     color: var(--fg_main);
     height: 100svh;
-    width: calc(20% - 0.5rem);
+    width: calc(18rem - 0.5rem);
     z-index: 10;
     padding-top: 0.5rem;
     display: flex;
@@ -17,14 +17,15 @@
     gap: 0.5rem;
     box-shadow: 0 0.1rem 0.5rem hsl(0, 0%, 0%, 0.3);
     margin-left: 0.5rem;
-    padding-left: 0.5rem;
+    padding-left: 0.75rem;
+    text-align: left;
 }
 .theme_container{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 27.7%;
     align-items: center;
     margin-top: -1rem;
-    margin-left: 0.5rem;
+    margin-left: 0rem;
 }
 .search_city{
     background-color: var(--bg_interaction);
@@ -46,7 +47,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-left: 1rem;
+    margin-left: 0rem;
     margin-top: 0.5rem;
 }
 .sity_link{
@@ -54,15 +55,6 @@
 }
 
 
-
-
-
-
-
-
-/* @media (max-width: 768px) {
-
-} */
 .switch{
     display: inline-block;
     position: relative;
@@ -86,7 +78,7 @@
     border-radius: 30px;
     /* background-color: #ccc; */
     background-color: hsl(197, 97%, 46%);
-    transition: 0.4s;
+    transition: 0.3s;
 }
 .switch__slider::before{
     position: absolute;
@@ -117,9 +109,9 @@
   * {box-sizing: border-box;}
   .form {
     position: relative;
-    width: 250px;
+    width: 90%;
     margin: 0 auto;
-    margin-left: 0.25rem;
+    margin-left: 0rem;
   }
   .input {
     width: 100%;
@@ -154,4 +146,35 @@
     text-align: center;
     margin-left: -0.7rem;
     margin-top: -0.3rem;
+}
+
+@media (max-width: 768px) {
+    .left-panel{
+        background-color: var(--bg_contact);
+        color: var(--fg_main);
+        height: 100svh;
+        width: 100svw;
+        z-index: 10;
+        padding-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        box-shadow: 0 0.1rem 0.5rem hsl(0, 0%, 0%, 0.3);
+        padding-left: 10%;
+        margin-left: 0;
+    }
+    .form{
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+        margin-left: 0%;
+        margin-right: 10%;
+    }
+    .theme_container{
+        display: grid;
+        grid-template-columns: 1fr 37%;
+        align-items: center;
+        margin-top: -1rem;
+        margin-left: 0rem;
+    }
 }

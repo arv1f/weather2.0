@@ -1,10 +1,11 @@
 import { useFullApi } from "../../contacts/fullApi";
 import "./style.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const WeatherPage = () => {
   const { city } = useParams<{ city: string }>();
   const { data, isLoading } = useFullApi(city!);
+  const navigator = useNavigate();
   return (
     <div className="weather_page">
       {isLoading ? (
@@ -37,6 +38,9 @@ export const WeatherPage = () => {
                 Pressure: {data.current.surface_pressure}
                 {data.current_units.surface_pressure}
               </div>
+              <button className="close" onClick={() => navigator("/")}>
+                Close
+              </button>
             </div>
           </div>
         )
