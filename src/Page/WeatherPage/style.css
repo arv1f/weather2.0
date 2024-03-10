@@ -1,8 +1,23 @@
 .weather_page {
     padding: 1rem;
 }
-
-
+.weather_page h1{
+    font-size: 2.5rem;
+    margin: 0;
+}
+.weather_inData{
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    gap: 1rem;
+}
+.weather_page div,
+.weather_page h2,
+.weather_page h1 {
+    transition: none;
+}
+.weather_info{
+    border: none;
+}
 
 
 

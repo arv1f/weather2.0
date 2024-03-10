@@ -19,12 +19,14 @@
   --bg_main: hsl(220, 22%, 92%);
   --bg_contact: hsl(220, 21%, 89%);
   --bg_interaction: hsl(220, 23%, 95%);
+  --bg_input: hsl(197, 97%, 46%);
 }
 .dark-theme{/*Макиато*/
   --fg_main: hsl(227, 68%, 88%);
   --bg_main: hsl(236, 23%, 12%);
   --bg_contact: hsl(233, 23%, 15%);
   --bg_interaction: hsl(232, 23%, 18%);
+  --bg_input: hsl(230, 19%, 26%);
 } 
 *{
   transition: all 0.15s ease-in-out;
