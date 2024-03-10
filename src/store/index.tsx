@@ -7,6 +7,7 @@ interface Store {
 }
 
 export const useMainStore = create<Store>()(
+  //          Извиняюсь за использование zustand только для смены темы я думал тут еще что нибудь будет
   devtools(
     persist(
       (set) => ({

@@ -4,11 +4,7 @@ import { useParams } from "react-router-dom";
 
 export const WeatherPage = () => {
   const { city } = useParams<{ city: string }>();
-  //if (!useFullApi(city!)) {return null}
   const { data, isLoading } = useFullApi(city!);
-  // if (data !== null && data !== undefined) {
-  //   console.log(data.current, data.current_units);
-  // }
   return (
     <div className="weather_page">
       {isLoading ? (

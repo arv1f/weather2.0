@@ -36,20 +36,6 @@ export const HomePage = () => {
             <span className="switch__slider"></span>
           </label>
         </div>
-        {/* <input
-          type="text"
-          className="search_city"
-          placeholder="Search / add City"
-          onChange={(event: ChangeEvent<HTMLInputElement>) => {
-            setValue(event.target.value);
-          }}
-        ></input>
-        <button
-          className="add_city"
-          onClick={() => navigator(`/weather/${value}`)}
-        >
-          Add City
-        </button> */}
         <form className="form">
           <input
             className="input"
