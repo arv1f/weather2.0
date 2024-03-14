@@ -82,7 +82,7 @@ export const WeatherPage = () => {
                   src="https://htc-msk.ru/uploads/category/351/menu_vetrozashit.png"
                   alt="wind speed: "
                   style={{ width: "1rem" }}
-                />
+                />{" "}
                 {data.daily.wind_speed_10m_max[index]}
                 {data.current_units.wind_speed_10m}
                 <br />
@@ -90,7 +90,7 @@ export const WeatherPage = () => {
                   src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699966-icon-1-cloud-1024.png"
                   alt="cloud density: "
                   style={{ width: "1rem" }}
-                />
+                />{" "}
                 {data.daily.precipitation_sum[index]}mm
               </div>
             ))}
