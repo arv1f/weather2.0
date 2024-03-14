@@ -4,10 +4,14 @@ import { persist, devtools } from "zustand/middleware";
 interface Store {
   isThemeDark: boolean;
   toggleTheme: () => void;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  setLocation: (latitude: number, longitude: number) => void;
 }
 
 export const useMainStore = create<Store>()(
-  //          Извиняюсь за использование zustand только для смены темы я думал тут еще что нибудь будет
   devtools(
     persist(
       (set) => ({
@@ -15,6 +19,15 @@ export const useMainStore = create<Store>()(
         toggleTheme: () =>
           set((state) => ({
             isThemeDark: !state.isThemeDark,
+          })),
+        location: {
+          latitude: 0,
+          longitude: 0,
+        },
+        setLocation: (latitude: number, longitude: number) =>
+          set((state) => ({
+            ...state,
+            location: { latitude, longitude },
           })),
       }),
       { name: "main", version: 1 },

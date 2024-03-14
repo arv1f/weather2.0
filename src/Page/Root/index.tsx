@@ -2,8 +2,27 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./style.css";
 import { useMainStore } from "../../store";
 import { ChangeEvent, useState } from "react";
+
 export const HomePage = () => {
-  const navigator = useNavigate();
+  const { isThemeDark, toggleTheme, setLocation } = useMainStore();
+  const useGeo = () => {
+    const showPosition = (position: {
+      coords: { latitude: any; longitude: any };
+    }) => {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      setLocation(lat, lon);
+      myNavigator(`/weather/${lat},${lon}`);
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  const myNavigator = useNavigate();
   const sityList = [
     "Moscow",
     "London",
@@ -14,12 +33,10 @@ export const HomePage = () => {
     "Berlin",
     "Minsk",
     "Vladivostok",
-    "Krasnoyarsk",
     "Saratov",
     "Санкт-Петербург",
     "Ростов-на-Дону",
   ];
-  const { isThemeDark, toggleTheme } = useMainStore();
   const [value, setValue] = useState<string>("");
   return (
     <div className={`root-cont ${isThemeDark ? "dark-theme" : "light-theme"}`}>
@@ -48,12 +65,17 @@ export const HomePage = () => {
           <button
             className="button"
             type="submit"
-            onClick={() => value !== "" && navigator(`/weather/${value}`)}
+            onClick={() => value !== "" && myNavigator(`/weather/${value}`)}
           >
             <img src="https://www.pngall.com/wp-content/uploads/8/Vector-Search.png" />
           </button>
         </form>
         <ul className="sity_list">
+          <li>
+            <NavLink className="sity_link" onClick={() => useGeo()} to={"/"}>
+              Use my location
+            </NavLink>
+          </li>
           {sityList
             .filter((el) =>
               value !== ""
@@ -69,7 +91,6 @@ export const HomePage = () => {
             ))}
         </ul>
       </div>
-
       <Outlet />
     </div>
   );

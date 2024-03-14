@@ -7,7 +7,7 @@ export const useWeatherApi = (latitude: number, longitude: number) => {
     queryFn: () =>
       axios
         .get(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`,
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m`,
         )
         .then((res) => res.data),
   });
