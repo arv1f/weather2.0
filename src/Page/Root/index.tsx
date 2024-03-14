@@ -56,7 +56,7 @@ export const HomePage = () => {
         <form className="form">
           <input
             className="input"
-            type="text"
+            type="search"
             placeholder="Search / add City"
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               setValue(event.target.value);
