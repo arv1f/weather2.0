@@ -74,8 +74,8 @@
         padding: 1rem;
         position: absolute;
         z-index: 20;
-        background-color: white;
-        height: 180svh;
+        background-color: var(--bg_main);
+        height: 185svh;
         width: 100svw;
     }
     .weather_now{

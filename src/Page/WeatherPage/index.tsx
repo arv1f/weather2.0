@@ -60,7 +60,7 @@ export const WeatherPage = () => {
           </div>
           <div className="weather_forecast">
             {data.daily.time.map((element, index) => (
-              <div>
+              <div key={index}>
                 {element}:<br />
                 <img
                   src={
